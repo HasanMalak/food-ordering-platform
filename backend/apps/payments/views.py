@@ -32,6 +32,13 @@ class PaymentCreateView(APIView):
             ],
             user=request.user,
         )
+        if hasattr(order, "payment"):
+            return Response(
+                {
+                    "error": "Payment already exists for this order."
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         payment = Payment.objects.create(
             order=order,

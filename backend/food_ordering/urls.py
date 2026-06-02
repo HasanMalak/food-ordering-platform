@@ -37,4 +37,8 @@ urlpatterns = [
         "api/categories/",
         include("apps.categories.urls"),
     ),
+    path(
+        "api/menu/",
+        include("apps.menu.urls"),
+    ),
 ]

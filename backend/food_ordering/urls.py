@@ -49,4 +49,8 @@ urlpatterns = [
         "api/orders/",
         include("apps.orders.urls"),
     ),
+    path(
+        "api/dashboard/",
+        include("apps.dashboard.urls"),
+    ),
 ]

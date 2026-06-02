@@ -29,4 +29,8 @@ urlpatterns = [
         "api/seller-requests/",
         include("apps.seller_requests.urls"),
     ),
+    path(
+        "api/restaurants/",
+        include("apps.restaurants.urls"),
+    ),
 ]

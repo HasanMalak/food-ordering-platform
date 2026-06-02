@@ -24,4 +24,9 @@ urlpatterns = [
         "api/auth/",
         include("apps.accounts.urls"),
     ),
+
+    path(
+        "api/seller-requests/",
+        include("apps.seller_requests.urls"),
+    ),
 ]

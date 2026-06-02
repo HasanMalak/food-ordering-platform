@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Local Apps
     "apps.accounts",
     "apps.seller_requests",
+    "apps.restaurants",
 ]
 
 MIDDLEWARE = [

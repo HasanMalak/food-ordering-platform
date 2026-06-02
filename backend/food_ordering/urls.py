@@ -41,4 +41,8 @@ urlpatterns = [
         "api/menu/",
         include("apps.menu.urls"),
     ),
+    path(
+        "api/cart/",
+        include("apps.cart.urls"),
+    ),
 ]

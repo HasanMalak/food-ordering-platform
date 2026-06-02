@@ -6,4 +6,23 @@ from .models import User
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
-    pass
+    fieldsets = UserAdmin.fieldsets + (
+        (
+            "Additional Information",
+            {
+                "fields": (
+                    "role",
+                    "phone",
+                )
+            },
+        ),
+    )
+
+    list_display = (
+        "id",
+        "username",
+        "email",
+        "role",
+        "is_staff",
+        "is_active",
+    )

@@ -34,6 +34,27 @@ class AddToCartView(APIView):
         cart, _ = Cart.objects.get_or_create(
             user=request.user
         )
+        existing_item = cart.items.first()
+
+        if existing_item:
+            existing_restaurant = (
+                existing_item.menu_item.restaurant
+            )
+
+            current_restaurant = (
+                menu_item.restaurant
+            )
+
+            if existing_restaurant != current_restaurant:
+                return Response(
+                    {
+                        "error": (
+                            "You can only order from one "
+                            "restaurant at a time."
+                        )
+                    },
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
 
         cart_item, created = (
             CartItem.objects.get_or_create(
